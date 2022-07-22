@@ -30,10 +30,9 @@ form?.addEventListener("submit", e => {
     createdAt:new Date()
   }
   tasks.push(newTask)
- 
-  
 
   addListItem(newTask)
+ 
 
 input.value = ''
 
@@ -44,52 +43,51 @@ const item = document.createElement('li')
 const checkbox = document.createElement('input')
 const button = document.createElement('button')
 button.setAttribute('id', 'remove-item')
+item.setAttribute('id', 'task-not-complete')
 
-// const remove = document.getElementsByClassName('remove')
-
-remove?.addEventListener('click', () => {
-  removeItem(task)
-})
 button.innerHTML = 'X'
-// remove?.addEventListener('click', ()=> {
-//   removeItem()
-// })
+
 
 checkbox.type = 'checkbox'
+
 checkbox.addEventListener('change', () => {
   task.completed = checkbox.checked
+  item.setAttribute('id', 'complete')
+  // item.setAttribute('id', {task.completed ? 'complete': 'task-not-complete'})
+
+ 
  saveTasks()
   
 })
-checkbox.checked = task.completed
+
+// checkbox.checked = task.completed
+
+
 
 item.append(checkbox, task.title, button)
-
 list?.append(item)
-
+ 
 }
 
+
 function saveTasks(){
-  localStorage.setItem("TASKS", JSON.stringify(tasks))
+  localStorage.setItem("task", JSON.stringify(tasks))
 }
 
 function loadTasks(): Task[]{
-  const taskJSON = localStorage.getItem("TASKS")
+  const taskJSON = localStorage.getItem("task")
  if (taskJSON == null) return []
 
  return JSON.parse(taskJSON)
 }
 
-function removeItem(task:Task){
-   localStorage.removeItem('task')
-  console.log('clear this item only');
- 
-
-  
-}
+remove?.addEventListener('click', () => {
+     localStorage.removeItem('task')
+     console.log('remove this item only');
+     
+})
 
 clear?.addEventListener('click', ()=> {
   localStorage.clear()
-  // console.log('clear all items');
   
 })
