@@ -43,18 +43,20 @@ const item = document.createElement('li')
 const checkbox = document.createElement('input')
 const button = document.createElement('button')
 button.setAttribute('id', 'remove-item')
-item.setAttribute('id', 'task-not-complete')
+// item.setAttribute('class', 'task-not-complete')
+
 
 button.innerHTML = 'X'
 
 
 checkbox.type = 'checkbox'
 
-checkbox.addEventListener('change', () => {
+checkbox.addEventListener('click', () => {
   task.completed = checkbox.checked
-  item.setAttribute('id', 'complete')
-  // item.setAttribute('id', {task.completed ? 'complete': 'task-not-complete'})
+  item.classList.toggle('complete')
+  // item.setAttribute('id', 'complete')
 
+  
  
  saveTasks()
   
