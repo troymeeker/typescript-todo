@@ -7,19 +7,31 @@
   <script src="dist/index.js" type="module"></script>
   <title>Document</title>
   <style>
+    body{
+      background-color: rgb(199, 219, 219);
+      text-align: center;
+    }
     #list {
       list-style: none;
-      padding: 0;
+      padding: 10px;
+     
+    }
+    #remove-item{
+      margin: 10px;
     }
   </style>
 </head>
 <body>
-
-  <ul id="list"></ul>
+<h2>Task List</h2>
+  
   <form id="new-task-form">
     <input type="text" id="new-task-title">
-    <button type="submit">Add</button>
+    <button type="submit" >Add Task</button>
+    <button id="clear-all">Clear all Tasks</button>
   </form>
-  
+  <ul id="list">
+   
+  </ul>
+
 </body>
 </html>
