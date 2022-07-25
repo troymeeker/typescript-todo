@@ -44,9 +44,9 @@ function addListItem(task: Task){
   const item = document.createElement('li')
   const label = document.createElement('label')
   const checkbox = document.createElement('input')
-  const removeItem = document.createElement('button')
-  removeItem.innerHTML = "X"
-  removeItem.setAttribute('id', 'remove-btn' )
+  // const removeItem = document.createElement('button')
+  // removeItem.innerHTML = "X"
+  // removeItem.setAttribute('id', 'remove-btn' )
 
   checkbox.addEventListener('change', () => {
    task.completed = checkbox.checked 
@@ -55,10 +55,17 @@ function addListItem(task: Task){
   //  item.classList.toggle('complete')
    
   })
+//   removeItem.addEventListener('click', () => {
+  
+//     const items = localStorage.getItem("TASKS")
+//     const filtered = items?.filter((item: { id: number }) => item.id !== id)
+//  localStorage.setItem('TASKS', JSON.stringify(filtered))
+
+//   })
    checkbox.type = 'checkbox'
    checkbox.checked = task.completed
    label.append(checkbox, task.title)
-   item.append(label, removeItem)
+   item.append(label)
    list?.append(item)
 
   // item.setAttribute('class', 'task-not-complete')
@@ -81,5 +88,6 @@ function loadTasks(): Task[] {
 
 clear?.addEventListener('click', () => {
   localStorage.clear()
+  location.reload()
   
 })

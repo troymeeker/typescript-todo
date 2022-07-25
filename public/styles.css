@@ -33,7 +33,7 @@ body{
   #remove-btn{
     margin: 7px;
     border:none;
-    transition:  .35s ease-in-out;
+    transition:  .25s ease-in-out;
   }
   #remove-btn:hover{
     background-color: #2e2e2e;
