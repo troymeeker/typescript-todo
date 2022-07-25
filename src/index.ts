@@ -1,5 +1,6 @@
 import {v4 as uuidV4} from "uuid"
 
+
 type Task =  {
   id: string
   title:string
@@ -30,42 +31,38 @@ form?.addEventListener("submit", e => {
     completed:false,
     createdAt:new Date()
   }
+  
   tasks.push(newTask)
+  saveTasks()  
 
   addListItem(newTask)
-
-  input.value = ''
+  input.value = ""
 
 })
-function addListItem(task:Task){
+
+function addListItem(task: Task){
   const item = document.createElement('li')
-item.addEventListener('click', () => {
-
-})
-
+  const label = document.createElement('label')
   const checkbox = document.createElement('input')
-  // const button = document.createElement('button')
-  // button.setAttribute('id', 'remove-item')
+  const removeItem = document.createElement('button')
+  removeItem.innerHTML = "X"
+  removeItem.setAttribute('id', 'remove-btn' )
 
-item.setAttribute('class', 'task-not-complete')
-// const remove = document.querySelector<HTMLButtonElement>('#remove-item') 
+  checkbox.addEventListener('change', () => {
+   task.completed = checkbox.checked 
+   saveTasks()  
+   
+  //  item.classList.toggle('complete')
+   
+  })
+   checkbox.type = 'checkbox'
+   checkbox.checked = task.completed
+   label.append(checkbox, task.title)
+   item.append(label, removeItem)
+   list?.append(item)
 
-  // button.innerHTML = 'X'
-
-  checkbox.type = 'checkbox'
-
-  checkbox.addEventListener('click', () => {
-  task.completed = checkbox.checked
-  item.classList.toggle('complete')
-  // item.setAttribute('id', 'complete')
-
-  saveTasks()  
-})
-
-// checkbox.checked = task.completed
-
-item.append(checkbox, task.title)
-list?.append(item)
+  // item.setAttribute('class', 'task-not-complete')
+ 
  
 }
 
@@ -73,18 +70,14 @@ function saveTasks(){
   localStorage.setItem("TASKS", JSON.stringify(tasks))
 }
 
-function loadTasks(): Task[]{
+function loadTasks(): Task[] {
   const taskJSON = localStorage.getItem("TASKS")
   if (taskJSON == null) return []
 
   return JSON.parse(taskJSON)
 }
 
-// remove?.addEventListener('click', () => {
-//      localStorage.removeItem('')
-//      console.log('remove this item only');
-     
-// })
+
 
 clear?.addEventListener('click', () => {
   localStorage.clear()

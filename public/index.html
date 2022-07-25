@@ -1,58 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="styles.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="dist/index.js" type="module"></script>
   <title>Document</title>
-  <style>
-    body{
-      background-color: rgb(199, 219, 219);
-      text-align: center;
-    }
-    #list {
-      list-style: none;
-      padding: 15px;
-   
-     
-    }
-    ul{
-      display: flex;
-      flex-direction: column;
- 
-      align-items: center;
-    }
-    li{
-      border-bottom:1px solid black;
-     
-      width: fit-content;
-    
-      padding: 15px;
-     
-    }
-    #remove-item{
-      margin: 10px;
-    }
-    .complete{
 
-     text-decoration: line-through;
-     font-size: larger;
-    }
-   
-   
-  </style>
 </head>
 <body>
-<h2>Task List</h2>
+  <h2>Task List</h2>
   
   <form id="new-task-form">
-    <input type="text" id="new-task-title">
-    <button type="submit" >Add Task</button>
-    <button id="clear-all">Clear all Tasks</button>
+    <input type="text" id="new-task-title" placeholder="Enter Task">
+    <button type="submit" class="slide-from-bottom" >Add Task </button>
+    <button id="clear-all" class="slide-from-bottom">Clear all Tasks </button>
   </form>
   <ul id="list">
-   <!-- <button id="remove-item">X</button> -->
+ 
   </ul>
 
 </body>

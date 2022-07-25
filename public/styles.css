@@ -1,0 +1,93 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+body{
+    background-color: rgb(37, 68, 68);
+    text-align: center;
+    color:rgb(219, 212, 212);
+  }
+  #list {
+    list-style: none;
+    padding: 15px;
+ 
+   
+  }
+  ul{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+  }
+  li{
+    border-bottom:1px solid black;
+   
+    width: fit-content;
+  
+    padding: 15px;
+    /* border: 1px solid black; */
+    border-radius:  10px;
+    background-color: grey;
+    color:rgb(237, 234, 234);
+  }
+  #remove-btn{
+    margin: 7px;
+    border:none;
+    transition:  .35s ease-in-out;
+  }
+  #remove-btn:hover{
+    background-color: #2e2e2e;
+    color:rgb(229, 229, 229);
+    
+  }
+   #new-task-title{
+    background-color: rgb(193, 188, 188);
+    border-radius: 5px;
+    border:none;
+    padding:10px;
+   }
+   .slide-from-bottom{
+    background-color: rgb(212, 212, 212);
+    border: none;
+    padding:6px; 
+    color: rgb(54, 54, 54);
+  
+    padding: .75em ;
+    margin: .75em;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+   }
+   .slide-from-bottom:hover{
+    color: #ececec;
+   }
+   .slide-from-bottom::after{
+    content: "";
+    background: #2e2e2e;
+    position: absolute;
+    z-index: -1;
+    padding: 0.85em 0.75em;
+    display: block;
+   }
+
+
+   .slide-from-bottom[class^="slide"]::after{
+    transition: all 0.35s;
+   }
+
+
+   .slide-from-bottom[class^="slide"]:hover::after{
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transition: all 0.35s;
+}
+
+
+ .slide-from-bottom::after {
+    left: 0;
+    right: 0;
+    top: 100%;
+    bottom: -100%;
+  }
