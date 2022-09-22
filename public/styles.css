@@ -3,9 +3,9 @@
    
 }
 body{
-    background-color: rgb(37, 68, 68);
+    background-color: rgb(54, 88, 88);
     text-align: center;
-    color:rgb(219, 212, 212);
+    color:rgb(231, 230, 230);
   }
   .border{
     border: 2px solid black;
@@ -13,6 +13,7 @@ body{
     margin: 10vw ;
     margin-top:3%;
     height: fit-content;
+    border-radius: 15px;
   }
   #list {
     list-style: none;
